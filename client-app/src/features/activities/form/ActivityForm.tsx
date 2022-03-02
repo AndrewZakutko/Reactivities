@@ -1,14 +1,15 @@
 import React, { ChangeEvent, useState } from "react";
 import { Button, Form, Segment } from "semantic-ui-react";
-import { IActivity } from "../../../models/activity";
+import { IActivity } from "../../../app/models/activity"
 
 interface Props {
     activity: IActivity | undefined;
     closeForm: () => void;
     createOrEdit: (activity: IActivity) => void;
+    submitting: boolean;
 }
 
-export default function ActivityForm({activity: selectedActivity, closeForm, createOrEdit}: Props) {
+export default function ActivityForm({activity: selectedActivity, closeForm, createOrEdit, submitting}: Props) {
 
     const initialState = selectedActivity ?? {
         id: '',
@@ -36,10 +37,10 @@ export default function ActivityForm({activity: selectedActivity, closeForm, cre
                 <Form.Input placeholder='Title' value={activity.title} name='title' onChange={handleInputChange}/>
                 <Form.TextArea placeholder='Description' value={activity.description} name='description' onChange={handleInputChange}/>
                 <Form.Input placeholder='Category' value={activity.catagory} name='catagory' onChange={handleInputChange}/>
-                <Form.Input placeholder='Date' value={activity.date} name='date' onChange={handleInputChange}/>
+                <Form.Input type="date" placeholder='Date' value={activity.date} name='date' onChange={handleInputChange}/>
                 <Form.Input placeholder='City' value={activity.city} name='city' onChange={handleInputChange}/>
                 <Form.Input placeholder='Venue' value={activity.venue} name='venue' onChange={handleInputChange}/>
-                <Button floated="right" positive type='submit' content='Submit'/>
+                <Button loading={submitting} floated="right" positive type='submit' content='Submit'/>
                 <Button onClick={closeForm} floated="right" type='button' content='Cancel'/>
             </Form>
         </Segment>
