@@ -8,7 +8,7 @@ using Application.Activities;
 
 namespace API.Controllers
 {
-    public class ActivitiesContoller : BaseApiController
+    public class ActivitiesController : BaseApiController
     {
 
         [HttpGet]
