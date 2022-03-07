@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './app/layout/styles.css';
+import 'react-datepicker/dist/react-datepicker.min.css'
 import App from './app/layout/App';
 import 'react-toastify/dist/ReactToastify.min.css';
 import reportWebVitals from './reportWebVitals';
