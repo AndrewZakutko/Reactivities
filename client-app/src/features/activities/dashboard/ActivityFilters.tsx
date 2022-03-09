@@ -5,7 +5,7 @@ import { Header, Menu } from "semantic-ui-react";
 export default function ActivityFilters(){
     return(
         <>
-            <Menu vertical size="large" style={{width: '63%', marginTop: 35}}>
+            <Menu vertical size="large" style={{width: '83%', marginTop: 35}}>
                 <Menu.Item content='All Activities' />
                 <Menu.Item content="I'm going" />
                 <Menu.Item content="I'm hosting" />
