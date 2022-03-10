@@ -29,7 +29,7 @@ namespace API.Middleware
                 context.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
 
                 var response = _env.IsDevelopment()
-                    ? new AppExeption(context.Response.StatusCode, ex.Message, ex.StackTrace?.ToString())
+                    ? new AppExeption(context.Response.StatusCode, ex.Message, ex.StackTrace?.ToString()!)
                     : new AppExeption(context.Response.StatusCode, "Server Error");
 
                 var options = new JsonSerializerOptions{PropertyNamingPolicy = JsonNamingPolicy.CamelCase};
