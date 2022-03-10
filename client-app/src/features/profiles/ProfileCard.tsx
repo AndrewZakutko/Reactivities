@@ -1,0 +1,29 @@
+import { observer } from "mobx-react-lite";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Card, Icon, Image } from "semantic-ui-react";
+import { Profile } from "../../app/models/profile";
+
+interface Props {
+    profile: Profile;
+}
+
+export default observer(function ProfileCard({profile}: Props) {
+    return(
+        <Card as={Link} to={`/profile/${profile.username}`}>
+            <Image src={`/assets/user.png` || profile.image}/>
+            <Card.Content>
+                <Card.Header>
+                    {profile.displayName}
+                </Card.Header>
+                <Card.Description>
+                    {profile.bio}
+                </Card.Description>
+                <Card.Content extra>
+                     <Icon name="user"/>
+                     20 followers
+                </Card.Content>
+            </Card.Content>
+        </Card>
+    )
+})
