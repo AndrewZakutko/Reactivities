@@ -16,7 +16,7 @@ export default observer(function RegisterForm(){
                 username: '',
                 email: '', 
                 password: '',
-                bio: '',
+                bio: 'Your bio',
                 error: null
             }}
             onSubmit={(values, {setErrors}) => userStore.register(values).catch(error => 
@@ -36,7 +36,6 @@ export default observer(function RegisterForm(){
                     <MyTextInput name="username" placeholder="Username" />
                     <MyTextInput name="email" placeholder="Email" />
                     <MyTextInput name="password" placeholder="Password" type="password"/>
-                    <MyTextInput name="bio" placeholder="Bio" />
                     <ErrorMessage 
                         name="error" render={() => 
                             <ValidationErrors errors={errors.error}/>}

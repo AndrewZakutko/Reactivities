@@ -9,9 +9,15 @@ interface Props {
 }
 
 export default observer(function ProfileCard({profile}: Props) {
+    function truncate(str: string | undefined){
+        if(str) {
+            return str.length > 40 ? str.substring(0, 37) + "..." : str;
+        }
+    }
+
     return(
         <Card as={Link} to={`/profile/${profile.username}`}>
-            <Image src={`/assets/user.png` || profile.image}/>
+            <Image src={profile.image || '/assets/user.png'}/>
             <Card.Content>
                 <Card.Header>
                     {profile.displayName}
