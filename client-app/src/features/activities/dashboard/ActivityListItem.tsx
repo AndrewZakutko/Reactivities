@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Icon, Item, Label, LabelGroup, Segment } from "semantic-ui-react";
+import { Button, Icon, Item, Label, LabelGroup, List, Segment } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 import { useStore } from "../../../app/stores/store";
 import { format } from 'date-fns'
@@ -28,12 +28,12 @@ export default function ActivityListItem({activity}: Props) {
                 )}
                 <Item.Group>
                     <Item>
-                        <Item.Image style={{marginBottom: 3}} size="tiny" circular src={`/assets/user.png`} />
+                        <Item.Image style={{marginBottom: 3}} size="tiny" circular src={activity.host?.image || `/assets/user.png`} />
                         <Item.Content>
                             <Item.Header as={Link} to={`/activities/${activity.id}`}>
                                 {activity.title}
                             </Item.Header>
-                            <Item.Description>Hosted by {activity.host?.displayName}</Item.Description>
+                            <Item.Description>Hosted by <strong><Link to={`/profiles/${activity.host?.username}`}>{activity.host?.displayName}</Link></strong></Item.Description>
                             {activity.isHost && (
                                 <Item.Description>
                                     <Label basic color="orange">
