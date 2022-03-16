@@ -24,7 +24,7 @@ export default function ActivityListItem({activity}: Props) {
         <Segment.Group>
             <Segment>
                 {activity.isCancelled && (
-                    <Label attached="top" color="red" content="Cencelled" style={{textAlign: 'center'}}/>
+                    <Label attached="top" color="red" content="Cancelled" style={{textAlign: 'center'}}/>
                 )}
                 <Item.Group>
                     <Item>

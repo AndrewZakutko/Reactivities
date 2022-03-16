@@ -82,7 +82,7 @@ namespace API.Controllers
             var user = await _userManager.Users.Include(p => p.Photos)
                 .FirstOrDefaultAsync(x => x.Email == User.FindFirstValue(ClaimTypes.Email));
 
-            return CreateUserObject(user);
+            return CreateUserObject(user!);
         }
 
         private UserDto CreateUserObject(AppUser user)
@@ -90,7 +90,7 @@ namespace API.Controllers
             return new UserDto
                 {
                     DisplayName = user.DisplayName,
-                    Image = user?.Photos?.FirstOrDefault(x => x.IsMain)?.Url,
+                    Image = user.Photos.FirstOrDefault(x => x.IsMain)!.Url,
                     Token = _tokenService.CreateToken(user),
                     Username = user.UserName
                 };
