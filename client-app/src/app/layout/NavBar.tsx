@@ -1,14 +1,16 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Button, Dropdown, Image, Menu } from "semantic-ui-react";
+import { Button, Dropdown, Icon, Image, Menu } from "semantic-ui-react";
 import { useStore } from "../stores/store";
 
 export default observer(function NavBar(){
     const {userStore: {user, logout}} = useStore();
     return(
         <Menu inverted fixed="top">
-            <Menu.Item exact as={NavLink} to='/' name="Reactivities" />
+            <Menu.Item exact as={NavLink} to='/'>
+                <Icon name="users" />Reactivities
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/activities' name="Activities" />
             <Menu.Item as={NavLink} to='/errors' name="Errors" />
             <Menu.Item>
