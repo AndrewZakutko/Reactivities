@@ -1,4 +1,3 @@
-import { th } from "date-fns/locale";
 import { makeAutoObservable, reaction, runInAction } from "mobx";
 import agent from "../api/agent";
 import { Photo, Profile, UserActivity } from "../models/profile";

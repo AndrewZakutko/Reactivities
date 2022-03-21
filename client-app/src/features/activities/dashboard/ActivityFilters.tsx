@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import Calendar from "react-calendar";
-import { Header, Icon, Menu } from "semantic-ui-react";
+import { Header, Menu } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 
 export default observer(function ActivityFilters(){

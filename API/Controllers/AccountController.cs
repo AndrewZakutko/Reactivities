@@ -75,7 +75,6 @@ namespace API.Controllers
             return BadRequest("Problem registretion user"); 
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
@@ -87,6 +86,15 @@ namespace API.Controllers
 
         private UserDto CreateUserObject(AppUser user)
         {
+            if(user.Photos.Count == 0)
+            {
+                return new UserDto
+                {
+                    DisplayName = user.DisplayName,
+                    Token = _tokenService.CreateToken(user),
+                    Username = user.UserName
+                };
+            }
             return new UserDto
                 {
                     DisplayName = user.DisplayName,

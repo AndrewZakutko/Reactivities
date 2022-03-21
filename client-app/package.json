@@ -17,6 +17,7 @@
     "formik": "^2.2.9",
     "mobx": "^6.4.2",
     "mobx-react-lite": "^3.3.0",
+    "mv": "^2.1.1",
     "react": "^17.0.2",
     "react-calendar": "^3.7.0",
     "react-cropper": "^2.1.8",
@@ -37,6 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "move build ../API/wwwroot",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
